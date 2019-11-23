@@ -18,6 +18,7 @@ class ML5NN {
             learningRate: learning_rate
         };
         this.network = ml5.neuralNetwork(this.initOptions);
+        this.isTrained = false;
     }
 
     /**
@@ -44,6 +45,7 @@ class ML5NN {
     train() {
         this.network.normalizeData();
         this.network.train(this.trainOptions, this.whileTraining, this.doneTraining);
+        this.isTrained = true;
     }
 
     /**

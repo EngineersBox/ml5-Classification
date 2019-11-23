@@ -26,3 +26,6 @@ body {
 
 .grid_pref {
   width: 35px; }
+
+#dg_custom_expr {
+  visibility: hidden; }

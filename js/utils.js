@@ -49,6 +49,13 @@ class ColorUtils {
         return color(color_a.levels.map((e, i) => Math.min(255, e + color_b.levels[i])));
     }
 
+    /**
+     * Generate a random RGB colour
+     */
+    static randomColour() {
+        return color(Math.random() * 255, Math.random() * 255, Math.random() * 255);
+    }
+
 }
 
 class Utils {
