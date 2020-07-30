@@ -32,10 +32,10 @@ class ML5NN {
         let inputs = {
             x: x_val,
             y: y_val
-        }
+        };
         let targets = {
             label: target
-        }
+        };
         this.network.addData(inputs, targets);
     }
 

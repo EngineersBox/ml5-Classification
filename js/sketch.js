@@ -26,17 +26,6 @@ let learning_rate;
 let stage = "input";
 let uid;
 
-function toDType(val) {
-    switch(val) {
-        case "manual":
-            return dType.MANUAL;
-        case "randomised":
-            return dType.RANDOM;
-        default:
-            return dType.MANUAL;
-    }
-}
-
 function toFType(val) {
     switch(val) {
         case "linear":
@@ -59,7 +48,7 @@ function toFType(val) {
 function initConst() {
     epoch_count = parseInt(Utils.getElem("epoch_count").value);
     learning_rate = parseFloat(Utils.getElem("learning_rate").value);
-    data_input_type = toDType(Utils.getElem("t_data").value);
+    data_input_type = dType[Utils.getElem("t_data").value] || dType.MANUAL;
 }
 
 function setup() {
@@ -94,7 +83,7 @@ function mousePressed() {
             model.addData(mouseX, mouseY, data_val);
             noFill();
             drawData(mouseX, mouseY, data_val);
-        } else if (data_input_type = dType.RANDOM) {
+        } else if (data_input_type === dType.RANDOM) {
 
         }
     }
@@ -108,7 +97,7 @@ function randomPoints() {
         let y = Math.random() * CANV_H;
         let value = func(x) <= y ? 'B' : 'A';
         model.addData(x, y, value);
-        fill(value == 'B' ? color(255, 0, 0, 127) : color(0, 0, 255, 127))
+        fill(value == 'B' ? color(255, 0, 0, 127) : color(0, 0, 255, 127));
         drawData(x, y, value);
     }
 }
